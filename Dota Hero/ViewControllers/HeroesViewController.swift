@@ -27,7 +27,6 @@ class HeroesViewController: UIViewController {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        
         collectionHerosWidth = collectionHeros.frame.size.width / 2
     }
     
@@ -110,7 +109,15 @@ extension HeroesViewController: UICollectionViewDataSource, UICollectionViewDele
             }
             collectionHeros.reloadData()
         case 1:
-            print("Heroes Selected")
+            let vc = HeroesDetailsViewController(nibName: "HeroesDetailsViewController", bundle: nil)
+            vc.hero = viewModel.filterHeroes.value[indexPath.row]
+            for data in viewModel.filterHeroes.value {
+                if data.primaryAttr.contains(viewModel.filterHeroes.value[indexPath.row].primaryAttr) {
+                    vc.heroes.accept(vc.heroes.value + [data])
+                }
+            }
+            self.navigationController?.modalPresentationStyle = .fullScreen
+            self.navigationController?.pushViewController(vc, animated: true)
         default:
             return
         }

@@ -22,6 +22,8 @@
 		0907BA1B26257C9900DE698D /* HeroCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0907BA1926257C9900DE698D /* HeroCell.swift */; };
 		0907BA1C26257C9900DE698D /* HeroCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0907BA1A26257C9900DE698D /* HeroCell.xib */; };
 		0907BA2226257F5500DE698D /* HeroesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0907BA2126257F5500DE698D /* HeroesViewModel.swift */; };
+		0907BA8626259BAB00DE698D /* HeroesDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0907BA8426259BAB00DE698D /* HeroesDetailsViewController.swift */; };
+		0907BA8726259BAB00DE698D /* HeroesDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0907BA8526259BAB00DE698D /* HeroesDetailsViewController.xib */; };
 		638A9B6FDB5B33D4C15FF0C7 /* Pods_Dota_Hero.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 157F14DF37A8A6DD49E50CAA /* Pods_Dota_Hero.framework */; };
 		C46E1812514E2E2954E77C42 /* Pods_Dota_Hero_Dota_HeroUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2420CB2C68F9E6DB8A2FCE88 /* Pods_Dota_Hero_Dota_HeroUITests.framework */; };
 		D2ED23E121FE93B0BBE47FAC /* Pods_Dota_HeroTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABBBF1AC9253D87474D99A61 /* Pods_Dota_HeroTests.framework */; };
@@ -68,6 +70,8 @@
 		0907BA1926257C9900DE698D /* HeroCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroCell.swift; sourceTree = "<group>"; };
 		0907BA1A26257C9900DE698D /* HeroCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeroCell.xib; sourceTree = "<group>"; };
 		0907BA2126257F5500DE698D /* HeroesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroesViewModel.swift; sourceTree = "<group>"; };
+		0907BA8426259BAB00DE698D /* HeroesDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroesDetailsViewController.swift; sourceTree = "<group>"; };
+		0907BA8526259BAB00DE698D /* HeroesDetailsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeroesDetailsViewController.xib; sourceTree = "<group>"; };
 		0EC24F849351B6229D7B0ECE /* Pods-Dota HeroTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dota HeroTests.release.xcconfig"; path = "Target Support Files/Pods-Dota HeroTests/Pods-Dota HeroTests.release.xcconfig"; sourceTree = "<group>"; };
 		157F14DF37A8A6DD49E50CAA /* Pods_Dota_Hero.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Dota_Hero.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		213D7D235C6AB92B39C6BCC0 /* Pods-Dota Hero.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dota Hero.debug.xcconfig"; path = "Target Support Files/Pods-Dota Hero/Pods-Dota Hero.debug.xcconfig"; sourceTree = "<group>"; };
@@ -165,6 +169,8 @@
 			children = (
 				0907BA2026257F1900DE698D /* View Models */,
 				0907BA0226257A4500DE698D /* HeroesViewController.swift */,
+				0907BA8426259BAB00DE698D /* HeroesDetailsViewController.swift */,
+				0907BA8526259BAB00DE698D /* HeroesDetailsViewController.xib */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -364,6 +370,7 @@
 				0907B9A026256F3400DE698D /* LaunchScreen.storyboard in Resources */,
 				0907B99D26256F3400DE698D /* Assets.xcassets in Resources */,
 				0907B99B26256F3100DE698D /* Main.storyboard in Resources */,
+				0907BA8726259BAB00DE698D /* HeroesDetailsViewController.xib in Resources */,
 				0907BA1226257C8500DE698D /* RolesCell.xib in Resources */,
 				0907BA1C26257C9900DE698D /* HeroCell.xib in Resources */,
 			);
@@ -496,6 +503,7 @@
 				0907BA0326257A4500DE698D /* HeroesViewController.swift in Sources */,
 				0907BA1126257C8500DE698D /* RolesCell.swift in Sources */,
 				0907BA2226257F5500DE698D /* HeroesViewModel.swift in Sources */,
+				0907BA8626259BAB00DE698D /* HeroesDetailsViewController.swift in Sources */,
 				0907B99426256F3100DE698D /* AppDelegate.swift in Sources */,
 				0907B9E62625788C00DE698D /* HeroStatsAPI.swift in Sources */,
 				0907B99626256F3100DE698D /* SceneDelegate.swift in Sources */,

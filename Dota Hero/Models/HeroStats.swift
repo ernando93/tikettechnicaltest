@@ -12,6 +12,7 @@ public struct HeroStats: Codable {
     let name, localizedName, primaryAttr, attackType: String
     let roles: [String]
     let img, icon: String
+    let baseMana: Int
     let baseHealth: Int
     let baseAttackMax, baseStr, baseAgi: Int
     let baseInt: Int
@@ -26,6 +27,7 @@ public struct HeroStats: Codable {
         case roles = "roles"
         case img = "img"
         case icon = "icon"
+        case baseMana = "base_mana"
         case baseHealth = "base_health"
         case baseAttackMax = "base_attack_max"
         case baseStr = "base_str"
@@ -34,7 +36,7 @@ public struct HeroStats: Codable {
         case moveSpeed = "move_speed"
         }
     
-    init(id: Int, name: String, localizedName: String, primaryAttr: String, attackType: String, roles: [String], img: String, icon: String, baseHealth: Int, baseAttackMax: Int, baseStr: Int, baseAgi: Int, baseInt: Int, strGain: Double, agiGain: Double, intGain: Double, attackRange: Int, projectileSpeed: Int, attackRate: Double, moveSpeed: Int, legs: Int) {
+    init(id: Int, name: String, localizedName: String, primaryAttr: String, attackType: String, roles: [String], img: String, icon: String, baseMana: Int, baseHealth: Int, baseAttackMax: Int, baseStr: Int, baseAgi: Int, baseInt: Int, strGain: Double, agiGain: Double, intGain: Double, attackRange: Int, projectileSpeed: Int, attackRate: Double, moveSpeed: Int, legs: Int) {
         self.id = id
         self.name = name
         self.localizedName = localizedName
@@ -43,6 +45,7 @@ public struct HeroStats: Codable {
         self.roles = roles
         self.img = img
         self.icon = icon
+        self.baseMana = baseMana
         self.baseHealth = baseHealth
         self.baseAttackMax = baseAttackMax
         self.baseStr = baseStr
