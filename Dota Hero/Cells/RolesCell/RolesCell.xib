@@ -32,6 +32,9 @@
                 <constraint firstItem="SE4-Af-Ol7" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="h5j-fv-9Iu"/>
                 <constraint firstAttribute="bottom" secondItem="SE4-Af-Ol7" secondAttribute="bottom" constant="10" id="hI8-VZ-gNn"/>
             </constraints>
+            <connections>
+                <outlet property="buttonRoles" destination="SE4-Af-Ol7" id="GOv-rQ-eMQ"/>
+            </connections>
             <point key="canvasLocation" x="-30.434782608695656" y="63.616071428571423"/>
         </collectionViewCell>
     </objects>

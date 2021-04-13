@@ -6,32 +6,52 @@
 //
 
 import UIKit
+import RxCocoa
+import RxSwift
+import Moya
+import Moya_ModelMapper
 
 class HeroesViewModel: NSObject {
     
-}
-
-extension HeroesViewModel: UICollectionViewDataSource {
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
+    var roles:[String] = []
+    var heroes = BehaviorRelay<[HeroStats]>(value: [])
+    var filterHeroes = BehaviorRelay<[HeroStats]>(value: [])
+    var disposeBag = DisposeBag()
+    private let provider = MoyaProvider<HeroStatsAPI>()
+    
+    func fetchHeroes(completionHandler: @escaping(_ success: Bool?,_ error: String?) -> Void) {
+        provider.rx.request(.heroes).filterSuccessfulStatusCodes().mapJSON().subscribe(onSuccess: { (response) in
+            guard let jsonData = try? JSONSerialization.data(withJSONObject: response) else {return}
+            do {
+                let decoder = JSONDecoder()
+                let res = try decoder.decode([HeroStats].self, from: jsonData)
+                self.heroes.accept(res)
+                self.filterHeroes.accept(res)
+                var arrayRoles: [String] = ["All"]
+                for data in res {
+                    arrayRoles.append(contentsOf: data.roles)
+                }
+                self.roles = self.uniqueElementsFrom(array: arrayRoles)
+                DispatchQueue.main.async {
+                    completionHandler(true, nil)
+                }
+            } catch {
+                print(error.localizedDescription)
+            }
+        }, onError: { (error) in
+            print(error.localizedDescription)
+        }).disposed(by: disposeBag)
     }
-
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
-    }
-
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        switch collectionView.tag {
-        case 0:
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "rolesCell", for: indexPath) as! RolesCell
-            
-            return cell
-        case 1:
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "heroCell", for: indexPath) as! HeroCell
-            
-            return cell
-        default:
-            return UICollectionViewCell()
+    
+    func uniqueElementsFrom(array: [String]) -> [String] {
+      var set = Set<String>()
+      let result = array.filter {
+        guard !set.contains($0) else {
+          return false
         }
+        set.insert($0)
+        return true
+      }
+      return result
     }
 }

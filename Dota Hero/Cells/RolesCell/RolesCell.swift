@@ -9,9 +9,11 @@ import UIKit
 
 class RolesCell: UICollectionViewCell {
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+    @IBOutlet weak var buttonRoles: UIButton!
+    
+    func configure(roles: String) {
+        buttonRoles.isUserInteractionEnabled = false
+        buttonRoles.layer.cornerRadius = 8.0
+        buttonRoles.setTitle(roles, for: .normal)
     }
-
 }

@@ -9,7 +9,7 @@ import Foundation
 import Moya
 
 enum HeroStatsAPI: TargetType {
-    case heros
+    case heroes
     
     public var baseURL: URL {
         return URL(string: "https://api.opendota.com/api/herostats")!
@@ -17,14 +17,14 @@ enum HeroStatsAPI: TargetType {
     
     public var path: String {
         switch self {
-        case .heros:
+        case .heroes:
             return ""
         }
     }
     
     public var method: Moya.Method {
         switch self {
-        case .heros:
+        case .heroes:
             return .get
         }
     }
@@ -35,7 +35,7 @@ enum HeroStatsAPI: TargetType {
     
     public var task: Task {
         switch self {
-        case .heros:
+        case .heroes:
             return .requestPlain
         }
     }
