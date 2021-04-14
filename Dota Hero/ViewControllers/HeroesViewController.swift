@@ -107,11 +107,7 @@ extension HeroesViewController: UICollectionViewDataSource, UICollectionViewDele
         case 1:
             let vc = HeroesDetailsViewController(nibName: "HeroesDetailsViewController", bundle: nil)
             vc.hero = viewModel.filterHeroes.value[indexPath.row]
-            for data in viewModel.filterHeroes.value {
-                if data.primaryAttr.contains(viewModel.filterHeroes.value[indexPath.row].primaryAttr) {
-                    vc.heroes.accept(vc.heroes.value + [data])
-                }
-            }
+            vc.heroes.accept(viewModel.filterHeroes.value.filter({$0.primaryAttr.contains(viewModel.filterHeroes.value[indexPath.row].primaryAttr)}))
             self.navigationController?.modalPresentationStyle = .fullScreen
             self.navigationController?.pushViewController(vc, animated: true)
         default:
