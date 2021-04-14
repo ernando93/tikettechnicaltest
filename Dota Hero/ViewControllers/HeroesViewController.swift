@@ -101,11 +101,7 @@ extension HeroesViewController: UICollectionViewDataSource, UICollectionViewDele
             if viewModel.roles[indexPath.row] == "All" {
                 viewModel.filterHeroes.accept(viewModel.heroes.value)
             } else {
-                for data in viewModel.heroes.value {
-                    if data.roles.contains(viewModel.roles[indexPath.row]) {
-                        viewModel.filterHeroes.accept(viewModel.filterHeroes.value + [data])
-                    }
-                }
+                viewModel.filterHeroes.accept(viewModel.heroes.value.filter({$0.roles.contains(viewModel.roles[indexPath.row])}))
             }
             collectionHeros.reloadData()
         case 1:
