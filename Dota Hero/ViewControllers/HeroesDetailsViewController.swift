@@ -53,21 +53,13 @@ class HeroesDetailsViewController: UIViewController {
     
     private func setupDataForCollectionView(with attr: String) {
         if attr == "agi" {
-            self.sorterHeroes(heroes: heroes.value.sorted(by: {$0.moveSpeed > $1.moveSpeed}))
+            filterHeroes.accept(Array(heroes.value.sorted(by: {$0.moveSpeed > $1.moveSpeed}).prefix(3)))
         } else if attr == "str" {
-            self.sorterHeroes(heroes: heroes.value.sorted(by: {$0.baseAttackMax > $1.baseAttackMax}))
+            filterHeroes.accept(Array(heroes.value.sorted(by: {$0.baseAttackMax > $1.baseAttackMax}).prefix(3)))
         } else if attr == "int" {
-            self.sorterHeroes(heroes: heroes.value.sorted(by: {$0.baseMana > $1.baseMana}))
+            filterHeroes.accept(Array(heroes.value.sorted(by: {$0.baseMana > $1.baseMana}).prefix(3)))
         }
         collectionHeros.reloadData()
-    }
-    
-    func sorterHeroes(heroes: [HeroStats]) {
-        for data in heroes {
-            if filterHeroes.value.count < 3 {
-                filterHeroes.accept(filterHeroes.value + [data])
-            }
-        }
     }
 }
 
